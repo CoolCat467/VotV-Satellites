@@ -1,3 +1,5 @@
+# All location data is formatted as follows:
+# Name [/Optional other names] - X:<x_coordinate>, Y:<y_coordinate>
 Base/Root       - X:0.0    , Y:0.0
 Bravo/Barbel    - X:-100.0 , Y:-200.0
 Charlie/Caspari - X:0.0    , Y:-200.0
