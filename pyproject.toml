@@ -11,7 +11,7 @@ authors = [
 description = "Voices of the Void Best Path Between Satellites Solver"
 readme = {file = "README.md", content-type = "text/markdown"}
 license = {file = "LICENSE"}
-requires-python = ">=3.10"
+requires-python = ">=3.11"
 classifiers = [
     "Development Status :: 4 - Beta",
     "Intended Audience :: End Users/Desktop",
@@ -169,12 +169,11 @@ partial_branches = [
 [tool.tox]
 legacy_tox_ini = """
     [tox]
-    envlist = py310, py311, py312, pytest, mypy
+    envlist = py311, py312, pytest, mypy
     isolated_build = false
 
     [gh-actions]
     python =
-        3.10: py310, pytest
         3.11: py311, pytest
         3.12: py312, pytest, mypy
 
