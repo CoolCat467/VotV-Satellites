@@ -26,11 +26,10 @@ __license__ = "GNU General Public License Version 3"
 
 
 from pathlib import Path
-from typing import TYPE_CHECKING, Final, Generic, NamedTuple, TypeVar
+from typing import TYPE_CHECKING, Final, Generic, NamedTuple, Self, TypeVar
 
 import numpy as np
 from python_tsp.exact import solve_tsp_dynamic_programming
-from typing_extensions import Self
 
 from votv_satellites.vector import Vector2
 

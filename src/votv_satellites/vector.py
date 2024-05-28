@@ -30,9 +30,9 @@ __ver_patch__ = 7
 
 import math
 import sys
-from typing import TYPE_CHECKING, NamedTuple
+from typing import TYPE_CHECKING, NamedTuple, Self
 
-from typing_extensions import Self, override
+from typing_extensions import override
 
 if TYPE_CHECKING:  # pragma: nocover
     from collections.abc import Iterable
