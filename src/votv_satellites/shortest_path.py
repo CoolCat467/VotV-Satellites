@@ -32,6 +32,8 @@ import numpy as np
 from python_tsp.exact import solve_tsp_dynamic_programming
 
 from votv_satellites.vector import Vector2
+from votv_satellites.result import Result
+
 
 if TYPE_CHECKING:
     from collections.abc import Iterable
@@ -80,27 +82,6 @@ class Location(NamedTuple):
         if "/" in self.name:
             return tuple(self.name.split("/"))
         return (self.name,)
-
-
-class Result(NamedTuple, Generic[T]):
-    """Potentially unsuccessful operation result."""
-
-    success: bool
-    value: T
-
-    @classmethod
-    def ok(cls, value: T) -> Result[T]:
-        """Success builder."""
-        return cls(True, value)
-
-    @classmethod
-    def fail(cls, value: T) -> Result[T]:
-        """Failure builder."""
-        return cls(False, value)
-
-    def __bool__(self) -> bool:
-        """Return if successful."""
-        return self.success
 
 
 def read_locations() -> list[Location]:
@@ -182,7 +163,7 @@ def run(version: str) -> None:
             continue
         assert isinstance(to_visit.value, list)
 
-        start_short = input("\nStart location (if blank, 'Base'):\n") or "Base"
+        start_short = input("\nStart & End location (if blank, 'Root'):\n") or "Root"
         start = find_fullnames(locations, [start_short])
         if not start:
             print(f"Error: {start.value}")
@@ -196,6 +177,7 @@ def run(version: str) -> None:
                 continue
             # print(f'{idx}: {location.name}')
             print(f"sv.target {location.names[0]}")
+        print(f"sv.target {path[0].names[0]}")
     print("\nProgram is stopping.")
 
 
