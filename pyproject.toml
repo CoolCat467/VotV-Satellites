@@ -29,7 +29,7 @@ classifiers = [
 keywords = []
 dependencies = [
     "python_tsp~=0.4.1",
-    "numpy~=1.26.4",
+    "numpy~=2.0.0",
     "typing_extensions",
 ]
 
@@ -97,6 +97,7 @@ select = [
     "FA",    # flake8-future-annotations
     "I",     # isort
     "N",     # pep8-naming
+    "NPY201",# numpy2-deprecation
     "PIE",   # flake8-pie
     "PT",    # flake8-pytest-style
     "PYI",   # flake8-pyi

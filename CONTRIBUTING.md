@@ -4,9 +4,9 @@ Thank you so much for your interest in contributing! All types of contributions 
 
 There are many ways to contribute, no contribution is too small, and all contributions are valued. For example, you could:
 
-- Use Catto-Invasion in a project, and give us feedback on what worked and what
+- Use Voices-of-the-Void-Satellites in a project, and give us feedback on what worked and what
   didn't.
-- Write a blog post about your experiences with Catto-Invasion, good or bad.
+- Write a blog post about your experiences with Voices-of-the-Void-Satellites, good or bad.
 - Improve documentation.
 - Comment on issues.
 - Add tests.
@@ -25,7 +25,7 @@ If you're new to open source in general, you might find it useful to
 check out [opensource.guide's How to Contribute to Open Source tutorial](https://opensource.guide/how-to-contribute/), or if
 video's more your thing, [egghead.io has a short free video course](https://egghead.io/courses/how-to-contribute-to-an-open-source-project-on-github>).
 
-Catto-Invasion is developed on GitHub. Code
+Voices-of-the-Void-Satellites is developed on GitHub. Code
 and documentation changes are made through pull requests (see
 `Preparing Pull Requests` below).
 
@@ -33,7 +33,7 @@ and documentation changes are made through pull requests (see
 Providing support
 -----------------
 
-When helping others use Catto-Invasion, please remember that you are
+When helping others use Voices-of-the-Void-Satellites, please remember that you are
 representing our community, and we want this to be a friendly and
 welcoming place.
 
@@ -41,7 +41,7 @@ Please remember that the authors and users of competing projects are
 smart, thoughtful people doing their best to balance complicated and
 conflicting requirements, just like us. Of course it's totally fine to
 make specific technical critiques ("In project X, this is handled by
-doing Y, Catto-Invasion does Z instead, which I prefer because...") or talk
+doing Y, Voices-of-the-Void-Satellites does Z instead, which I prefer because...") or talk
 about your personal experience ("I tried using X but I got super
 frustrated and confused"), but refrain from generic statements like "X
 sucks" or "I can't believe anyone uses X".
@@ -95,7 +95,7 @@ What to put in a PR
 
 Each PR should, as much as possible, address just one issue and be
 self-contained. If you have ten small, unrelated changes, then go
-ahead and submit ten PRs – it's much easier to review ten small
+ahead and submit ten PRs - it's much easier to review ten small
 changes than one big change with them all mixed together, and this way
 if there's some problem with one of the changes it won't hold up all
 the others.
@@ -126,7 +126,7 @@ pip install -r ../checkout  # possibly using a virtualenv
 pytest src
 ```
 
-This doesn't try to be completely exhaustive – it only checks that
+This doesn't try to be completely exhaustive - it only checks that
 things work on your machine. But it's
 a good way to quickly check that things seem to be working, and we'll
 automatically run the full test suite when your PR is submitted, so
@@ -177,7 +177,7 @@ pip install -U pre-commit
 pre-commit
 ```
 
-to fix it up. (And don't worry if you forget – when you submit a pull
+to fix it up. (And don't worry if you forget - when you submit a pull
 request then we'll automatically check and remind you.) Hopefully this
 will let you focus on more important style issues like choosing good
 names, writing useful comments, and making sure your docstrings are
@@ -232,8 +232,8 @@ recommended.
 Managing issues
 ---------------
 
-As issues come in, they need to be responded to, tracked, and –
-hopefully! – eventually closed.
+As issues come in, they need to be responded to, tracked, and -
+hopefully! - eventually closed.
 
 As a general rule, each open issue should represent some kind of task
 that we need to do. Sometimes that task might be "figure out what to
