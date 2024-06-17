@@ -29,7 +29,7 @@ classifiers = [
 keywords = []
 dependencies = [
     "python_tsp~=0.4.1",
-    "numpy~=1.26.4",
+    "numpy~=2.0.0",
     "typing_extensions",
 ]
 
