@@ -26,14 +26,13 @@ __license__ = "GNU General Public License Version 3"
 
 
 from pathlib import Path
-from typing import TYPE_CHECKING, Final, Generic, NamedTuple, Self, TypeVar
+from typing import TYPE_CHECKING, Final, NamedTuple, Self, TypeVar
 
 import numpy as np
 from python_tsp.exact import solve_tsp_dynamic_programming
 
-from votv_satellites.vector import Vector2
 from votv_satellites.result import Result
-
+from votv_satellites.vector import Vector2
 
 if TYPE_CHECKING:
     from collections.abc import Iterable
@@ -163,7 +162,9 @@ def run(version: str) -> None:
             continue
         assert isinstance(to_visit.value, list)
 
-        start_short = input("\nStart & End location (if blank, 'Root'):\n") or "Root"
+        start_short = (
+            input("\nStart & End location (if blank, 'Root'):\n") or "Root"
+        )
         start = find_fullnames(locations, [start_short])
         if not start:
             print(f"Error: {start.value}")
