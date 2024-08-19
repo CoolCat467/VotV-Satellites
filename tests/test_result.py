@@ -1,4 +1,4 @@
-"""Test vector module."""
+"""Test result module."""
 
 from __future__ import annotations
 
