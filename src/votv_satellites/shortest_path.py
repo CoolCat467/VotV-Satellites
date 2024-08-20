@@ -29,7 +29,7 @@ from pathlib import Path
 from typing import TYPE_CHECKING, Final, NamedTuple, Self, TypeVar
 
 import numpy as np
-from python_tsp.exact import solve_tsp_dynamic_programming
+from python_tsp.exact import solve_tsp_branch_and_bound
 
 from votv_satellites.result import Result
 from votv_satellites.vector import Vector2
@@ -140,7 +140,7 @@ def find_shortest_path(
             distance_matrix[row, col] = row_location.pos.get_distance_to(
                 col_location.pos,
             )
-    permutation, _distance = solve_tsp_dynamic_programming(distance_matrix)
+    permutation, _distance = solve_tsp_branch_and_bound(distance_matrix)
     return [locations[idx] for idx in permutation]
 
 
