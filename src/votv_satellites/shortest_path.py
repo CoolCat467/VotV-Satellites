@@ -45,13 +45,13 @@ T = TypeVar("T")
 
 
 def colin_dict(line: str) -> dict[str, str]:
-    """Return dictionary from a colin-seperated key value pair."""
+    """Return dictionary from a colin-separated key value pair."""
     key, value = line.split(":", 1)
     return {key: value}
 
 
 def multiline_colin_dict(lines: Iterable[str]) -> dict[str, str]:
-    """Return dictionary from multiple colin-seperated key value pairs."""
+    """Return dictionary from multiple colin-separated key value pairs."""
     data = {}
     for line in lines:
         data.update(colin_dict(line))

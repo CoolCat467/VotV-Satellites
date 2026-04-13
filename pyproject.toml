@@ -18,19 +18,20 @@ classifiers = [
     "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
     "Natural Language :: English",
     "Programming Language :: Python :: 3",
-    "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
     "Programming Language :: Python :: 3 :: Only",
     "Topic :: Games/Entertainment",
     "Operating System :: OS Independent",
     "Typing :: Typed",
 ]
-keywords = []
+keywords = ["voices-of-the-void", "satellites", "tsp-solver"]
 dependencies = [
     "python_tsp~=0.5.0",
-    "numpy~=2.4.0",
-    "typing_extensions",
+    "numpy~=2.4.4",
+    "typing_extensions>=4.15.0",
 ]
 
 [tool.setuptools.dynamic]
@@ -43,11 +44,28 @@ version = {attr = "votv_satellites.__init__.__version__"}
 [project.scripts]
 votv_satellite_path = "votv_satellites:cli_run"
 
+[project.optional-dependencies]
+tests = [
+    "pytest>=9.0.3",
+    "pytest-cov>=7.1.0",
+]
+tools = [
+    "uv>=0.11.6",
+    "mypy>=1.20.0",
+    "ruff>=0.15.10",
+    "codespell>=2.4.2",
+    "pre-commit>=4.5.1",
+    "attrs>=26.1.0",
+]
+
 [tool.setuptools.package-data]
 votv_satellites = ["py.typed", "data/*"]
 
 [tool.mypy]
-mypy_path = "src"
+files = [
+    "src",
+    "tests",
+]
 check_untyped_defs = true
 disallow_any_generics = true
 disallow_untyped_calls = true
@@ -75,7 +93,6 @@ disable_all_dunder_policy = true
 
 [tool.black]
 line-length = 79
-target-version = ['py312']
 
 [tool.ruff]
 line-length = 79
@@ -95,13 +112,16 @@ select = [
     "EXE",   # flake8-executable
     "F",     # pyflakes
     "FA",    # flake8-future-annotations
+    "FLY",   # flynt
+    "FURB",  # refurb
     "I",     # isort
+    "ICN",   # flake8-import-conventions
     "N",     # pep8-naming
-    "NPY201",# numpy2-deprecation
     "PIE",   # flake8-pie
     "PT",    # flake8-pytest-style
     "PYI",   # flake8-pyi
     "Q",     # flake8-quotes
+    "R",     # Refactor
     "RET",   # flake8-return
     "RUF",   # Ruff-specific rules
     "S",     # flake8-bandit
@@ -117,9 +137,10 @@ extend-ignore = [
     "D204",   # one-blank-line-after-class
     "D211",   # no-blank-line-before-class
     "D213",   # multi-line-summary-second-line
-    "D417",   # undocumented-param
+    "D417",   # undocumented-param "Missing argument descriptions"
     "E501",   # line-too-long
-    "S101",   # undocumented-param
+    "PYI041", # redundant-numeric-union
+    "S101",   # assert (use of assert for tests and type narrowing)
     "SIM117", # multiple-with-statements
 ]
 
@@ -138,7 +159,6 @@ testpaths = [
 
 [tool.coverage.run]
 branch = true
-source = ["src"]
 omit = [
     "__init__.py",
 ]
@@ -165,30 +185,3 @@ partial_branches = [
     "if .* or not _t.TYPE_CHECKING:",
     "if .* or not t.TYPE_CHECKING:",
 ]
-
-[tool.tox]
-legacy_tox_ini = """
-    [tox]
-    envlist = py311, py312, pytest, mypy
-    isolated_build = false
-
-    [gh-actions]
-    python =
-        3.11: py311, pytest
-        3.12: py312, pytest, mypy
-
-    [testenv]
-    setenv =
-        PYTHONPATH = {toxinidir}
-
-    [testenv:pytest]
-    deps =
-        pytest
-        pytest-cov
-    commands = pytest --basetemp={envtmpdir}
-
-    [testenv:mypy]
-    deps =
-        mypy
-    commands = mypy src
-"""
