@@ -66,7 +66,7 @@ else
     echo "::endgroup::"
     echo "::group:: Run Tests"
     # coverage run --rcfile=../pyproject.toml -m
-    if pytest -ra --junitxml=../test-results.xml ../tests --verbose --durations=10 $flags; then
+    if pytest -ra tests --verbose --durations=10; then
         PASSED=true
     else
         PASSED=false
