@@ -5,7 +5,7 @@
 from __future__ import annotations
 
 # Voices of the Void Best Path Between Satellites Solver
-# Copyright (C) 2024  CoolCat467
+# Copyright (C) 2024-2026  CoolCat467
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -87,16 +87,17 @@ def read_locations() -> list[Location]:
     """Read locations data and return location objects."""
     locations = []
     with open(LOCATIONS_FILE, encoding="utf-8") as fp:
-        for line in fp.read().splitlines():
+        for line in fp:
+            line = line.strip()
             if not line or line.startswith("#"):
                 continue
             locations.append(Location.from_line(line))
     return locations
 
 
-def combine_end(data: Iterable[str], final: str = "and") -> str:
+def combine_end(iterable: Iterable[object], final: str = "and") -> str:
     """Join values of text, and have final with the last one properly."""
-    data = list(map(str, data))
+    data = list(map(str, iterable))
     if len(data) >= 2:
         data[-1] = f"{final} {data[-1]}"
     if len(data) > 2:
